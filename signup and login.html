@@ -1,0 +1,282 @@
+<html>
+<head>
+<script>
+function fval()
+{
+  var f=f1.fname.value;
+  var re=/\W|\d|_/;
+  if(f.length<8)
+  {    
+     var x=document.getElementById("first");
+     x.innerHTML="First Name should More than 8 characters";
+     flag=1;
+  }
+  if(re.test(f))
+  {
+       var x=document.getElementById("first");
+       x.innerHTML="First name should only alphabets";
+  }
+}
+
+function lval()
+{
+  var l=f1.lname.value;
+  var re=/\W|\d|_/;
+ if(l.length<8)
+  {
+    var x=document.getElementById("last");
+     x.innerHTML="Last Name should be More than 8 characters";
+  }
+ if(re.test(l))
+  {
+       var x=document.getElementById("last");
+     x.innerHTML="Last name should only alphabets";
+  flag=1;  
+  }
+}
+function uval()
+{
+  var u=f1.uname.value;
+  var re_un1=/\d/;
+  var re_un2=/[a-z]|[A-Z]/;
+  var re_un3=/_/;
+  var re_un=/\W/;
+    if(u.length<8)
+  {
+    var x=document.getElementById("uid");
+     x.innerHTML="enter More than 8 characters";
+flag=1; 
+ }
+  if(!(re_un1.test(u)&&re_un2.test(u)&&re_un3.test(u))||re_un.test(u))
+   {
+         var x=document.getElementById("uid");
+         x.innerHTML="user name should contains alphanumerics ";
+         flag=1;  
+   }
+}
+ function pval()
+{
+  var p=f1.pass.value;
+  var re2=/[A-Z]/;
+  var re3=/\W/;
+      if(!(p.length>8&&re2.test(p)&&re3.test(p)))
+   {
+         var x=document.getElementById("pswd");
+     x.innerHTML="password should be greater than 8 and Should have Uppercase and Special Symbol";
+      flag=1;  
+   }
+}
+function mval()
+{
+  var m=f1.mn.value;
+  var re_md=/\D/;
+  var re_ms=/^9|^8|^7|/;
+  if(m.length<10)
+  {    
+     var x=document.getElementById("mnn");
+     x.innerHTML="mobile number should be exactly 10 digits";
+     flag=1;
+  }
+  if(re_md.test(m)|| !re_ms.test(m))
+  {
+       var x=document.getElementById("mnn");
+       x.innerHTML="Mobile Number Should be Digits and starts with 7/8/9";
+  }
+ }
+function poval()
+{
+  var p=f1.pc.value;
+  var re_pd=/\D/;  
+  var re_ps=/^5/;  
+  if(p.length!=6)
+  {    
+     var x=document.getElementById("post");
+     x.innerHTML="postal code should be exactly 6 digits";
+     flag=1;
+  }
+  if(re_pd.test(p)|| !re_ps.test(p))
+  {
+       var x=document.getElementById("post");
+       x.innerHTML="Postal Code Should be Digits and starts with 5";
+  }
+}
+function eval()
+{
+       var e=f1.em.value;
+       var atpos=e.indexOf("@");
+       var dotpos=e.lastIndexOf(".");
+       if(atpos<1 || dotpos<atpos+3 || dotpos+2>=e.length)
+          {
+       var x=document.getElementById("eid");
+       x.innerHTML="Invalid Mail Id";
+        }
+}
+function validate()
+{ 
+var flag=0;
+var fn=f1.fname.value;
+var ln=f1.lname.value;
+var un=f1.uname.value;
+var pa=f1.pass.value;
+var mb=f1.mn.value;
+var email=f1.em.value;
+var pos=f1.pc.value;
+
+if(fn=='' || ln=='' || un=='' || pa=='' || pos=='' || mb=='' ||email=='')
+  {
+   alert("please fill all details");
+    flag=1;
+ } 
+if(flag==0)
+  {
+ document.writeln(fanme);
+  }
+}
+</script>
+</head>
+<body bgcolor=yellow>
+<form  name="f1">
+<div style="margin-left:400px;border:5px solid black;width:400px;height:1000px;float:left;">
+<table align="center" width="40%" border="0" cellspacing="3" cellpadding="9">
+<th collspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Registration page of company</th>
+
+<tr>
+<td align="center">First Name</td>
+<td align="center"><input type="text" name="fname" onblur="fval()"><span id ="first" style="color:black"></span>
+
+</tr>
+<tr>
+<td align="center">Last Name</td>
+<td align="center"><input type="text" name="lname" onblur="lval()"><span id="last" style="color:black"></span>
+
+</tr>
+<tr>
+<td align="center">E-Mail</td>
+<td align="center"><input type="email"  name="em" onblur="eval()"><span id="eid" style="color:black"></span></td>
+
+</tr>
+<tr>
+<td align="center">Mobile Number</td>
+<td align="center"><input type="text" name="mn" maxlength="10" onblur="mval()"><span id="mnn" style="color:black"></span</td>
+
+</tr>	
+<tr>
+<td align="center">Address</td>
+<td align="center" colspan="0"><textarea rows="6"></textarea></td>
+</tr>
+
+<tr>
+<td align="center">City</td>
+<td align="center"><span id="city" style="color:black"></span>
+
+<select name="distrcit" id="distrcit" class="form-control">
+<option value="Ranga Reddy ">Ranga Reddy</option>
+<option value=" East Godavari">East Godavari</option>
+<option value="Guntur">Guntur</option>
+<option value="Krishna">Krishna</option>
+<option value="Visakapatnam">Visakapatnam</option>
+<option value="Chittor">Chittor</option>
+<option value="Anatapur">Anatapur</option>
+<option value="Kurnool">Kurnool</option>
+<option value="mahabubnagar">mahabubnagar</option>
+<option value="Hyderabad">Hyderabad</option>
+<option value="West Godavari">West Godavari</option>
+<option value="Karimnagar">Karimnagar</option>
+<option value="Warangal">Warangal</option>
+<option value="Nalgonda">Nalgonda</option>
+<option value="Prakasam">Prakasam</option>
+
+
+</select>
+</tr>
+
+
+
+
+
+<tr>
+<td align="center">State</td>
+
+
+<td align="center"><span id="state" style="color:black"></span>
+
+<select name="state" id="state" class="form-control">
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Delhi">Delhi</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Puducherry">Puducherry</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Odisha">Odisha</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Telangana">Telangana</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Uttarakhand">Uttarakhand</option>
+<option value="West Bengal">West Bengal</option>
+</select>
+</tr>
+<tr>
+<td align="center">Pin code</td>
+<td align="center"><input type="text" name="pc" maxlength="6" onblur="poval()"><span id="post" style="color:black"></span></td>
+
+</tr>
+
+<tr>
+<td align="center">Company Name</td>
+<td align="center"><input type="text"><span id="uid" style="color:black"></span>
+
+</tr>
+<tr>
+<td align="center">Occupation</td>
+<td align="center"><input type="text"><span id="uid" style="color:black"></span>
+
+</tr>
+<tr>
+<td align="center">Years of Experience</td>
+<td align="center"><input type="text"><span id="uid" style="color:black"></span>
+
+</tr>
+
+<tr>
+<td align="center">Password</td>
+<td align="center"><input type="password" name="pass" onblur="pval()"><span id="pswd" style="color:black"></span>
+
+</tr>
+<tr>
+<td align="center">Confirm Password</td>
+<td align="center"><input type="password" name="confirmp" size="20">
+
+</tr>
+
+<tr>
+<td></td>
+<td align="center"><input type="button" value="Login" name="submit" onClick="validate()"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>
